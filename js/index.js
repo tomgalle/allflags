@@ -58,6 +58,8 @@ window.mobileAndTabletcheck = function() {
 			var allFlagsImage;
 			var reader = new FileReader();
 
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
 			// Function to Load Uploaded Image to Canvas
 			reader.onloadend = function () {
 				console.log("-- READER ON LOAD END --")
@@ -65,20 +67,41 @@ window.mobileAndTabletcheck = function() {
 
 				uploadedImage = new Image();
 				uploadedImage.src = reader.result;
+
+
 				uploadedImage.onload = function (event) {
+
+          var w = uploadedImage.naturalWidth;
+          var h = uploadedImage.naturalHeight;
+          var a = w / h;
+          var landscape = true;
+          if (a < 1) landscape = false;
+          // canvas.height = canvas.width / a;
+          var sourceX = landscape ? (w - h) / 2 : 0;
+          var sourceY = landscape ? 0 : (h - w) / 2;
+          var sourceWidth = landscape ? h : w;
+          var sourceHeight = landscape ? h : w;
+          var destWidth = canvas.width;
+          var destHeight = canvas.height;
+          var destX = 0;
+          var destY = 0;
+
 					context.globalAlpha = 0.3
-					context.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
-				}
+					// context.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
+				  context.drawImage(uploadedImage, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+
+        }
 
 				allFlagsImage = new Image();
 				allFlagsImage.src = allFlagsUri ;
 				allFlagsImage.onload = function() {
 					context.globalAlpha = 1
 					context.globalCompositeOperation = "soft-light";
-					context.drawImage(allFlagsImage, 0, 0, canvas.width, canvas.height);	
+
+					context.drawImage(allFlagsImage, 0, 0, canvas.width, canvas.height);
 					downloadImageFromCanvas()
 				}
-				canvas.style.display = 'block';	
+				canvas.style.display = 'block';
 			}
 
 			reader.readAsDataURL(file);
@@ -111,9 +134,11 @@ window.mobileAndTabletcheck = function() {
             saveAs(blob, (canvas_filename.value || canvas_filename.placeholder) + ".png");
           })
         }
-        else
+        else {
 				  saveAs(blob, (canvas_filename.value || canvas_filename.placeholder) + ".png");
-			}, "image/png");
+        }
+			
+      }, "image/png");
 		};
 }(self));
 
