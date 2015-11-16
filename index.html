@@ -3,36 +3,53 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
-        <title> </title>
+        <meta charset="UTF-8">
+        <title>All Flags</title>
+
+        <!-- LIBRARIES -->  
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.rawgit.com/eligrey/Blob.js/master/Blob.js"></script>
+        <script type="text/javascript" src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/master/canvas-toBlob.js"></script>
+        <script type="text/javascript" src="./js/FileSaver.js"></script>
+        <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+        
 
         <meta name="description" content=" "/>
         <link rel="image_src" href="img/ .png" />
 
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" href="./css/FilterCanvas.css"> 
+        <link rel="stylesheet" href="./css/SaveCanvas.css"/> 
         <link rel="stylesheet" type="text/css" href="css/normalize.css">   
         <link rel="stylesheet" type="text/css" href="css/main.css">
-
     </head>
 
+         <!-- SPLASH CONTAINER -->
+         <section class="SplashContainer">
+           <h1>All Flags Filter</h1>
+           <h2>Show your support to all countries attacked by ISIS (or ISIS-affiliated organizations), not  just France</h2>
+           <div>
+             <img src="./assets/splashimage.jpg"/>
+           </div>
+         </section>
 
+         <!-- UPLOAD IMAGE -->
+         <section class="UploadContainer">
+           <p id="status">File API &amp; Upload Image not supported on your device</p>
+           <p><input type=file></p>
+           <div id="holder"></div>
+         </section>
+
+         <!-- FILTER CANVAS -->
+         <section class="FilterContainer">
+           <canvas id="FilterCanvas" width="300" height="300"></canvas>
+         </section>
+
+
+        <!-- JAVASCRIPT -->  
+        <script type="text/javascript" src="./js/index.js"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
     <body>
-
-
-
-
-
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
-        <script>
-
-
-
-
-        </script>
-
-
-
-    </body>
 </html>
 
 
