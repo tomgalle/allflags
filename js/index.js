@@ -32,7 +32,7 @@
 			state.className = 'fail';
 		} else {
 			state.className = 'success';
-			state.innerHTML = 'Conver Your Profile Photo';
+			state.innerHTML = 'Convert Your Profile Photo:';
 		}
 		 
 		upload.onchange = function (e) {
