@@ -161,7 +161,7 @@ form {
   /*background-color: red;*/
   margin: 0 auto;
   margin-top: 20px;
-
+  /*text-align: center;*/
 }
 
 .wrapper h1{
@@ -197,12 +197,40 @@ form {
 
 }*/
 
+.social{
+  width: 220px;
+  height: 22px;
+  margin: 0 auto;
+  margin-top: 40px;
+  /*background-color: gray;*/
+  position: relative;
+  left: 20px;
+
+}
+
+.social .facebook {
+    width: 100px;
+    height: 22px;
+    /*background-color: orange;*/
+    float: left;
+}
+
+
+
+.social .twitter {
+    width: 120px;
+    height: 22px;
+    /*background-color: red;*/
+    float: right;
+}
+
+
 
 .credits{
   text-align: center;
-  margin-top: 70px;
+  margin-top: 15px;
   font-size: 13px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 .credits a{
@@ -217,9 +245,31 @@ form {
 
 
 
+.mobilemessage{
+  display: none;
+}
 
 
 
+
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) 
+  and (orientation : portrait) { 
+
+    .mobilemessage{
+        display: visible;
+      width:100%;
+      background-color: blue;
+      height: 100px;
+      /*height: 197px;*/
+    }
+
+    .title{
+      font-size: 21px;
+    }
+
+  }
 
 
 
